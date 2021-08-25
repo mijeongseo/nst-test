@@ -9,6 +9,7 @@ import ImagePopup from '../components/ImagePopup';
 import { useSelector, useDispatch } from 'react-redux';
 import { END } from 'redux-saga';
 import wrapper from '../store/configureStore';
+import { backUrl } from '../config/config';
 
 const Button = styled.button`
     border: 0;
@@ -80,7 +81,7 @@ export default function Home() {
                     <div style={{ cursor: 'pointer' }} key={post.id}>
                         <img
                             style={{ display: 'block', width: '100%', marginTop: 20 }}
-                            src={`http://localhost:3065/${post.src}`}
+                            src={`${backUrl}/${post.src}`}
                             onClick={popOpen}
                             alt=""
                         />
