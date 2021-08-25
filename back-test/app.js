@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const dotenv = require('dotenv');
 const path = require('path');
+const hpp = require('hpp');
+const helmet = require('helmet');
 
 const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
@@ -25,9 +27,14 @@ db.sequelize
 
 passportConfig();
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(hpp());
+    app.use(helmet());
+} else {
+}
 app.use(
     cors({
-        origin: 'http://localhost:3060',
+        origin: ['http://localhost:3060', 'mimiofficial.com'],
         credentials: true, //쿠키허용
         // secret: process.env.COOKIE_SECRET,
     })
