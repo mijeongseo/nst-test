@@ -1,6 +1,11 @@
 import { all, fork, put, takeLatest, call } from 'redux-saga/effects';
 import axios from 'axios';
 
+import { backUrl } from '../../config/config';
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = backUrl;
+
 function loadUserAPI() {
     return axios.get(`/user`);
 }

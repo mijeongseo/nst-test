@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import 'antd/dist/antd.css';
-import axios from 'axios';
-import { backUrl } from '../config/config';
+// import axios from 'axios';
+// import { backUrl } from '../config/config';
 import wrapper from '../store/configureStore';
 
-axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://3.34.191.17';
+/* axios.defaults.withCredentials = true;
+axios.defaults.baseURL = backUrl; */
 
 const App = ({ Component }) => (
     <>
