@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "nodemon app",
-        "start": "node app"
+        "start": "pm2 start app.js"
     },
     "author": "Mimi",
     "license": "ISC",
@@ -21,6 +21,7 @@
         "next": "^10.2.3",
         "passport": "^0.4.1",
         "passport-local": "^1.0.0",
+        "pm2": "^5.1.1",
         "sequelize": "^6.6.5",
         "sequelize-cli": "^6.2.0"
     },
