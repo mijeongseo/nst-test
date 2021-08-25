@@ -7,7 +7,7 @@ import { backUrl } from '../config/config';
 import wrapper from '../store/configureStore';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = backUrl;
+axios.defaults.baseURL = 'http://3.34.191.17';
 
 const App = ({ Component }) => (
     <>
