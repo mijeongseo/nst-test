@@ -8,6 +8,8 @@ const path = require('path');
 const hpp = require('hpp');
 const helmet = require('helmet');
 
+const morgan = require('morgan');
+
 const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 const postsRouter = require('./routes/posts');
@@ -28,19 +30,21 @@ db.sequelize
 passportConfig();
 
 if (process.env.NODE_ENV === 'production') {
+    app.use(morgan('combined'));
     app.use(hpp());
     app.use(helmet());
 } else {
+    app.use(morgan('dev'));
 }
 app.use(
     cors({
         // origin: ['http://localhost:3060', 'mimiofficial.com', 'http://3.36.72.28'],
-        origin: true,
+        origin: 'http://3.36.72.28',
         credentials: true, //쿠키허용
         // secret: process.env.COOKIE_SECRET,
     })
 );
-app.use('/', express.static(path.join(__dirname, 'uploads')));
+// app.use('/', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
