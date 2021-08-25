@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 app.use(
     cors({
-        origin: ['http://localhost:3060', 'mimiofficial.com'],
+        origin: ['http://localhost:3060', 'mimiofficial.com', 'http://3.36.72.28'],
         credentials: true, //쿠키허용
         // secret: process.env.COOKIE_SECRET,
     })
