@@ -38,10 +38,13 @@ if (process.env.NODE_ENV === 'production') {
 }
 app.use(
     cors({
-        // origin: ['http://localhost:3060', 'mimiofficial.com', 'http://3.36.72.28'],
-        origin: 'http://3.36.72.28',
+        origin: ['http://localhost:3060', 'mimiofficial.com', 'http://3.36.72.28'],
+        //origin: 'http://localhost:3060',
         credentials: true, //쿠키허용
-        // secret: process.env.COOKIE_SECRET,
+        secret: process.env.COOKIE_SECRET,
+        cookie: {
+            httpOnly: true,
+        },
     })
 );
 // app.use('/', express.static(path.join(__dirname, 'uploads')));
@@ -67,6 +70,6 @@ app.use('/user', userRouter);
 app.use('/post', postRouter);
 app.use('/posts', postsRouter);
 
-app.listen(80, () => {
+app.listen(3065, () => {
     console.log('서버 실행 중!');
 });
